@@ -1,0 +1,6 @@
+spring:
+  jpa:
+    open-in-view: false
+
+statistics-api:
+  url: https://api.covid19api.com
