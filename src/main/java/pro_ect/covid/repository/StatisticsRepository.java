@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface StatisticsRepository extends JpaRepository<CountryStaticsEntity, UUID> {
+public interface StatisticsRepository extends JpaRepository<CountryStatisticsEntity, UUID> {
 
-    Optional<CountryStaticsEntity> findCountryEntityByCountryCode(String countryCode);
+    Optional<CountryStatisticsEntity> findByCountryCode(String countryCode);
 }

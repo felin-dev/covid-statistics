@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pro_ect.covid.domain.CountryStatistics;
-import pro_ect.covid.repository.CountryStaticsEntity;
+import pro_ect.covid.repository.CountryStatisticsEntity;
 import pro_ect.covid.repository.StatisticsRepository;
 
 import javax.annotation.PostConstruct;
@@ -21,7 +21,7 @@ public class StatisticsService {
     private final StatisticsRepository repository;
 
     @PostConstruct
-    private void tryRefreshCountriesStatistics() {
+    private void tryRefreshCountryStatistics() {
         try {
             refreshCountryStatistics();
         } catch (RuntimeException e) {
@@ -30,7 +30,7 @@ public class StatisticsService {
     }
 
     public Optional<CountryStatistics> findCountryStatisticsByCode(String countryCode) {
-        return repository.findCountryEntityByCountryCode(countryCode)
+        return repository.findByCountryCode(countryCode)
                 .map(statistics -> new CountryStatistics(
                         statistics.getId(),
                         statistics.getCountry(),
@@ -46,8 +46,8 @@ public class StatisticsService {
     }
 
     public void refreshCountryStatistics() {
-        repository.saveAll(stream(client.fetchCountriesStatistics().spliterator(), false)
-                .map(statistics -> new CountryStaticsEntity(
+        repository.saveAll(stream(client.fetchCountryStatistics().spliterator(), false)
+                .map(statistics -> new CountryStatisticsEntity(
                         statistics.id(),
                         statistics.country(),
                         statistics.countryCode(),

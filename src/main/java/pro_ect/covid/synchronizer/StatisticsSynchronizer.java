@@ -12,7 +12,7 @@ public class StatisticsSynchronizer {
     private final StatisticsService service;
 
     @Scheduled(cron = "0 * * * * *") // every minute
-    public void dailyDataUpdate() {
+    public void synchronize() {
         service.refreshCountryStatistics();
     }
 }

@@ -23,7 +23,7 @@ class StatisticsClient {
         this.restTemplate = restTemplate;
     }
 
-    public Iterable<CountryStatistics> fetchCountriesStatistics() {
+    public Iterable<CountryStatistics> fetchCountryStatistics() {
         return requireNonNull(restTemplate.getForObject(baseUrl + "/summary", Summary.class))
                 .countries().stream()
                 .map(statistics -> new CountryStatistics(

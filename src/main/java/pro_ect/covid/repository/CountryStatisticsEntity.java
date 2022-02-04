@@ -13,7 +13,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CountryStaticsEntity {
+public class CountryStatisticsEntity {
 
     @Id
     @Column(nullable = false)
