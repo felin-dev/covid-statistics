@@ -29,8 +29,8 @@ public class StatisticsService {
         }
     }
 
-    public Optional<CountryStatistics> findCountryStatisticsByCode(String countryCode) {
-        return repository.findByCountryCode(countryCode)
+    public Optional<CountryStatistics> findCountryStatisticsByCode(String code) {
+        return repository.findByCountryCode(code)
                 .map(statistics -> new CountryStatistics(
                         statistics.getId(),
                         statistics.getCountry(),

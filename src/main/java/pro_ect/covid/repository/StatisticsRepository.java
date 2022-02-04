@@ -9,5 +9,5 @@ import java.util.UUID;
 @Repository
 public interface StatisticsRepository extends JpaRepository<CountryStatisticsEntity, UUID> {
 
-    Optional<CountryStatisticsEntity> findByCountryCode(String countryCode);
+    Optional<CountryStatisticsEntity> findByCountryCode(String code);
 }
