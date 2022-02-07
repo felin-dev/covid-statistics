@@ -4,3 +4,6 @@ spring:
 
 statistics-api:
   url: https://api.covid19api.com
+
+synchronizer:
+  schedule: '0 * * * * *' # every minute

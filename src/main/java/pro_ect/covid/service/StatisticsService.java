@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pro_ect.covid.domain.CountryStatistics;
+import pro_ect.covid.external.api.StatisticsClient;
 import pro_ect.covid.repository.CountryStatisticsEntity;
 import pro_ect.covid.repository.StatisticsRepository;
 

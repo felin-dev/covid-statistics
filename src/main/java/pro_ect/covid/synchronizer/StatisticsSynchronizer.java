@@ -7,12 +7,12 @@ import pro_ect.covid.service.StatisticsService;
 
 @Component
 @RequiredArgsConstructor
-public class StatisticsSynchronizer {
+class StatisticsSynchronizer {
 
     private final StatisticsService service;
 
-    @Scheduled(cron = "0 * * * * *") // every minute
-    public void synchronize() {
+    @Scheduled(cron = "${synchronizer.schedule}")
+    void synchronize() {
         service.refreshCountryStatistics();
     }
 }

@@ -1,4 +1,4 @@
-package pro_ect.covid.service;
+package pro_ect.covid.external.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,12 +13,12 @@ import java.util.UUID;
 import static java.util.Objects.requireNonNull;
 
 @Service
-class StatisticsClient {
+public class StatisticsClient {
 
     private final String baseUrl;
     private final RestTemplate restTemplate;
 
-    public StatisticsClient(@Value("${statistics-api.url}") String baseUrl, RestTemplate restTemplate) {
+    StatisticsClient(@Value("${statistics-api.url}") String baseUrl, RestTemplate restTemplate) {
         this.baseUrl = baseUrl;
         this.restTemplate = restTemplate;
     }
@@ -40,7 +40,6 @@ class StatisticsClient {
                         statistics.date()))
                 .toList();
     }
-
 
     private record Summary(@JsonProperty("Countries") List<CountryStatistics> countries) {
 
